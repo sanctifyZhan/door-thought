@@ -1,0 +1,89 @@
+<html>
+<head>
+  <title>
+   不動産コンテンツ
+  </title>
+  <meta charset="utf-8">
+  <meta name="viewport"
+      content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<script src="https://aframe.io/releases/1.0.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.0/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+
+<script>
+  AFRAME.registerComponent('plane', {
+    init: function () {
+      const material = this.el.getObject3D('mesh').material;
+
+      material.colorWrite = false;
+
+      console.log(material);
+    }
+  });
+</script>
+
+  <a-scene embedded arjs='debugUIEnabled:false; trackingMethod: best;'
+        device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false" loading-screen="enabled:false" precision: mediump>
+
+<a-assets>
+        <a-asset-item id="santa-obj" src="wall_fixScale_0727.obj"></a-asset-item>
+        <a-asset-item id="santa-mtl" src="wall_fixScale_0727.mtl"></a-asset-item>
+</a-assets>
+
+<a-marker type='pattern' url='checkimg1.patt'>
+
+  <a-plane
+    plane
+    color="blue"
+    width="6"
+    height="1.5"
+    position="0 0.5 -2.3"
+    rotation="-90 0 0"
+  ></a-plane>
+
+
+ <a-plane
+    plane
+    color="blue"
+    width="2"
+    height="7"
+    position="-1.8 0.5 0"
+    rotation="-90 0 0"
+  ></a-plane>
+
+
+ <a-plane
+    plane
+    color="blue"
+    width="2"
+    height="7"
+    position="1.8 0.5 0"
+    rotation="-90 0 0"
+  ></a-plane>
+
+
+  <a-plane
+    plane
+    color="blue"
+    width="6"
+    height="1.5"
+    position="0 0.5 2"
+    rotation="-90 0 0"
+  ></a-plane>
+
+
+
+   <a-obj-model src="#santa-obj" mtl="#santa-mtl" cloak-component position="0 0 0" scale="1 1 1" rotation="0 0 0"></a-obj-model>
+		
+		
+ </a-marker>
+	   <a-entity camera></a-entity>
+	 </a-entity>
+ 	</a-scene>		
+</body>
+</html>
